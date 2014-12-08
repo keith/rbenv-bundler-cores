@@ -8,6 +8,8 @@ setup_bundler_cores() {
   # Only setup cores after successfully installing Ruby.
   [ "$STATUS" = "0" ] || return 0
 
+  rbenv rehash
+
   if ! command -v bundler >/dev/null; then
     echo "rbenv-bundler-cores won't work without bundler"
     exit 1
